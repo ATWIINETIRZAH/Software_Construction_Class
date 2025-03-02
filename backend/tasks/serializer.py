@@ -6,4 +6,4 @@ from .models import Task
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['id', 'title', 'description', 'assigned_to']  # List of fields you want to serialize
+        fields = ['id', 'title', 'description', 'assigned_to', 'created_at']  # Include created_at
