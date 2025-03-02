@@ -31,13 +31,22 @@ Including another URLconf
 
 # ]
 
-from django.contrib import admin
+# from django.contrib import admin
+# from django.urls import path
+# from users.views import UserListCreate
+# # from tasks.views import TaskListCreate
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('api/users/', UserListCreate.as_view(), name='users-list'),
+#     # path('api/tasks/', TaskListCreate.as_view(), name='tasks-list'),
+# ]
+
+
 from django.urls import path
-from users.views import UserListCreate
-from tasks.views import TaskListCreate
+from tasks.views import TaskListCreateView, TaskDetailView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/users/', UserListCreate.as_view(), name='users-list'),
-    path('api/tasks/', TaskListCreate.as_view(), name='tasks-list'),
+    path('api/tasks/', TaskListCreateView.as_view(), name='tasks-list'),
+    path('api/tasks/<int:pk>/', TaskDetailView.as_view(), name='task-detail'),  # CRUD for single task
 ]
